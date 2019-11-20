@@ -1,7 +1,24 @@
 const path = require("path");
 
+const packageJson = require('./package.json');
+
+// define paths
+const PATHS = {
+    entry:    path.join(__dirname, packageJson.main),
+    // favicon: path.join(__dirname, 'source/media/favicon.ico'),
+    // modules: path.join(__dirname, 'node_modules'),
+    output:  path.join(__dirname, 'distribution')
+    // test:    path.join(__dirname, 'tests'),
+}
+
 module.exports = {
-    entry: "./source/index.tsx",
+    devServer: {
+        contentBase: PATHS.output,
+        compress: true,
+        port: 9000
+    },
+    entry: PATHS.entry,
+    mode: "development",
     module: {
         rules: [
             {
@@ -11,17 +28,11 @@ module.exports = {
             }
         ]
     },
-    resolve: {
-        extensions: [".tsx", ".ts", ".js"]
-    },
     output: {
-        path: path.resolve(__dirname, "distribution"),
+        path: PATHS.output,
         filename: "bundle.js"
     },
-    devServer: {
-        contentBase: path.join(__dirname, "distribution"),
-        compress: true,
-        port: 9000
-    },
-    mode: "development"
+    resolve: {
+        extensions: [".tsx", ".ts", ".js"]
+    }
 };
