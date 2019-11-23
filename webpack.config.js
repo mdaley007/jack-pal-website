@@ -3,7 +3,7 @@ const webpack = require("webpack");
 
 const packageJson = require('./package.json');
 
-// define paths
+// CONSTANTS
 const PATHS = {
     entry:    path.join(__dirname, packageJson.main),
     // favicon: path.join(__dirname, 'source/media/favicon.ico'),
@@ -12,12 +12,13 @@ const PATHS = {
     // test:    path.join(__dirname, 'tests'),
 }
 
+
 module.exports = {
     devtool: 'eval-source-map',
     devServer: {
         contentBase: PATHS.output,
         compress: true,
-        port: 9000
+        port: 8080
     },
     entry: PATHS.entry,
     mode: "development",
@@ -48,6 +49,10 @@ module.exports = {
                 test: /\.(ttf|eot|svg|gif|jpg|png)(\?[\s\S]+)?$/,
                 use: "file-loader",
                 exclude: /node_modules/
+            },
+            {
+                test: /\.json$/,
+                use: 'json-loader',
             }
         ]
     },

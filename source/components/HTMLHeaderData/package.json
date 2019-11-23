@@ -1,0 +1,7 @@
+{
+  "name": "html-header-data",
+  "version": "1.0.0",
+  "description": "Uses react-helmet to insert data into the <html> <head>",
+  "main": "./HTMLHeaderData.tsx"
+}
+  
