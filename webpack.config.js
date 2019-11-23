@@ -1,4 +1,5 @@
 const path = require("path");
+const webpack = require("webpack");
 
 const packageJson = require('./package.json');
 
@@ -12,6 +13,7 @@ const PATHS = {
 }
 
 module.exports = {
+    devtool: 'eval-source-map',
     devServer: {
         contentBase: PATHS.output,
         compress: true,
@@ -25,6 +27,27 @@ module.exports = {
                 test: /\.tsx?$/,
                 use: "ts-loader",
                 exclude: /node_modules/
+            },
+            {
+                test: /\.css$/i,
+                use: [
+                    'style-loader',
+                    "@teamsupercell/typings-for-css-modules-loader",
+                    {
+                        loader: 'css-loader',
+                        options: {
+                            localsConvention: "camelCase",
+                            modules: {
+                                localIdentName: "[name]-[local]-[hash:base64:6]"
+                            }
+                        }
+                    }
+                ]
+            },
+            {
+                test: /\.(ttf|eot|svg|gif|jpg|png)(\?[\s\S]+)?$/,
+                use: "file-loader",
+                exclude: /node_modules/
             }
         ]
     },
@@ -32,6 +55,9 @@ module.exports = {
         path: PATHS.output,
         filename: "bundle.js"
     },
+    plugins: [
+        new webpack.WatchIgnorePlugin([ /css\.d\.ts$/ ]),
+    ],
     resolve: {
         extensions: [".tsx", ".ts", ".js"]
     }

@@ -1,0 +1,7 @@
+{
+  "name": "get-name",
+  "version": "1.0.0",
+  "description": "GetName Component",
+  "main": "./GetName.tsx"
+}
+  

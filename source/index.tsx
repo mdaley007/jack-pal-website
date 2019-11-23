@@ -3,6 +3,9 @@ import { render } from "react-dom"
 import { Provider } from "react-redux"
 import { Store } from "redux"
 
+// IMPORT GLOBAL STYLES
+import "./global.css"
+
 // IMPORT CONTAINERS
 import { Counter } from './containers/Counter'
 import { User } from './containers/User'

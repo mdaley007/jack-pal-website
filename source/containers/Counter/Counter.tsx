@@ -1,6 +1,9 @@
 import * as React from "react"
 import { useDispatch, useSelector } from "react-redux"
 
+// IMPORT STYLES
+import * as styles from "./Counter.css"
+
 // IMPORT STORE STATE
 import { IStoreState } from "../../store"
 
@@ -9,7 +12,7 @@ import { counterDecrement, counterIncrement } from "./counterActions"
 import { userUpdateName } from "../User/userActions"
 
 // IMPORT COMPONENTS
-import GetName from "../../components/GetName"
+import GetName from "../../components/GetName/GetName"
 
 // CONTAINER
 export const Counter: React.SFC = () => {
@@ -28,11 +31,14 @@ export const Counter: React.SFC = () => {
     return (
         <div>
 
-            <h2>Counter: {count}</h2>
+            <h2 className={styles.counterText}>Counter: {count}</h2>
             <button onClick={handleCounterIncrement}>+</button>
             <button onClick={handleCounterDecrement}>-</button>
 
-            <GetName onChange={handleUserUpdateName} />
+            <GetName 
+                onChange={handleUserUpdateName} 
+                style={styles.counterText}
+            />
             
         </div>
     )

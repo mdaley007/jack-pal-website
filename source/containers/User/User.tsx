@@ -1,6 +1,9 @@
 import * as React from "react"
 import { useSelector } from "react-redux"
 
+// IMPORT STYLES
+import * as styles from "./User.css"
+
 // IMPORT STORE STATE
 import { IStoreState } from "../../store"
 
@@ -12,7 +15,7 @@ export const User: React.SFC = () => {
     const { name } = useSelector(userSelector)
 
      return (
-        <h2>User: {name}</h2>
+        <h2 className={styles.userText}>User: {name}</h2>
     )
 
 }
