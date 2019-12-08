@@ -4,9 +4,10 @@
   "description": "Building Community through Film-Making",
   "main": "./source",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack-dev-server --env development",
-    "build": "webpack --env production"
+    "build": "webpack --config webpack.production",
+    "dev":   "webpack --config webpack.development",
+    "start": "webpack-dev-server --config webpack.development",
+    "test":  "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
     "@teamsupercell/typings-for-css-modules-loader": "^2.1.0",
@@ -16,9 +17,15 @@
     "@types/react-redux": "^7.1.5",
     "@types/redux": "^3.6.0",
     "@types/redux-logger": "^3.0.7",
+    "clean-webpack-plugin": "^3.0.0",
     "css-loader": "^3.2.0",
     "file-loader": "^4.3.0",
+    "html-loader": "^0.5.5",
+    "html-webpack-plugin": "^3.2.0",
+    "html-webpack-template": "^6.2.0",
     "json-loader": "^0.5.7",
+    "mini-css-extract-plugin": "^0.8.0",
+    "optimize-css-assets-webpack-plugin": "^5.0.3",
     "style-loader": "^1.0.0",
     "ts-loader": "^6.2.1",
     "tslint": "^5.20.1",
@@ -27,7 +34,8 @@
     "typescript": "^3.7.2",
     "webpack": "^4.41.2",
     "webpack-cli": "^3.3.10",
-    "webpack-dev-server": "^3.9.0"
+    "webpack-dev-server": "^3.9.0",
+    "webpack-merge": "^4.2.2"
   },
   "dependencies": {
     "react": "^16.12.0",

@@ -3,6 +3,7 @@ import { useSelector } from "react-redux"
 
 // IMPORT STYLES
 import * as styles from "./User.css"
+const LogoPic = require("../../assets/jackPalLogo-white.png")
 
 // IMPORT STORE STATE
 import { IStoreState } from "../../store"
@@ -14,8 +15,10 @@ export const User: React.SFC = () => {
     const userSelector = (state: IStoreState) => ({ ...state.user })
     const { name } = useSelector(userSelector)
 
-     return (
+     return (<>
         <h2 className={styles.userText}>User: {name}</h2>
-    )
+        <img style={{width: "600px"}} src={LogoPic} />
 
+    </>)
 }
+
