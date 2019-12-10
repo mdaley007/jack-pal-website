@@ -1,6 +1,6 @@
 declare namespace CounterCssModule {
   export interface ICounterCss {
-    "counter-text": string;
+    'counter-text': string;
     counterText: string;
   }
 }

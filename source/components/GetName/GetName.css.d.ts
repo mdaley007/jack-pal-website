@@ -1,6 +1,6 @@
 declare namespace GetNameCssModule {
   export interface IGetNameCss {
-    "get-name-text": string;
+    'get-name-text': string;
     getNameText: string;
   }
 }

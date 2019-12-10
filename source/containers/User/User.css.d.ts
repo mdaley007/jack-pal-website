@@ -1,6 +1,6 @@
 declare namespace UserCssModule {
   export interface IUserCss {
-    "user-text": string;
+    'user-text': string;
     userText: string;
   }
 }
